@@ -1,0 +1,118 @@
+body {
+    font-family: 'Open Sans Condensed', sans-serif;
+    display: block;
+    margin: 0px;
+}
+
+#header{
+    
+    left:0px;
+    top:0px;
+    height: 40px;
+    width: 100%;
+    background-color: brown;
+}
+
+#game{
+    position: absolute;
+    left:0px;
+    top:40px;
+    right: 0px;
+    bottom: 0px;
+    background-color: rgb(255, 0, 200);
+}
+
+#boardSpace{
+    overflow:auto;
+    position: absolute;
+    left:0px;
+    top:0px;
+    height: 100%;
+    width: 35%;
+    overflow: hidden;
+    background-color: lightcyan;
+    transition: all 0.4s;
+}
+
+#boardSpace:hover{
+    width:65%;
+    transition: all 0.4s;
+}
+
+#board{
+    position: absolute;
+    left:50%;
+    top:50%;
+    width:65%;
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+
+    background-color: rgb(42, 151, 165);
+}
+#board:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+#boardContent{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+
+.separator{
+    position: absolute;
+    width:15px;
+    top: 0px;
+    bottom: 0px;
+    background-color: rgb(110, 18, 18);
+}
+
+#separatorLeft{
+    left: 35%;
+}
+#separatorRight{
+    right: 35%;
+}
+
+#middleBar{
+    position: absolute;
+    left: 35%;
+    right: 35%;
+    padding-left: 15px;
+    padding-right: 15px;
+    top: 0px;
+    bottom: 0px;
+    background-color: lightgreen;
+}
+
+#playersSideBar{
+    overflow:auto;
+    position: absolute;
+    width: 35%;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    background-color: rgb(236, 238, 144);
+}
+
+#testButton{
+    position: absolute;
+    left : 25%;
+    right:25%;
+    top:10%;
+    height: 40px;
+    color: blanchedalmond;
+    background-color: rgb(0, 17, 255);
+    
+}
+
+.playerStats{
+    position: absolute;
+    left:0;
+    right:0;
+    height : 300px;
+    background-color: rgb(255, 145, 0);
+    border: 1px solid black;
+}

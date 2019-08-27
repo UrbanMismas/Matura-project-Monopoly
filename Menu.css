@@ -1,0 +1,167 @@
+
+#menu{
+    position: fixed;
+    left:50%;
+    top:50%;
+    width:auto;
+    height: auto;
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+
+    background-color: rgb(255, 255, 255);
+}
+
+.menuButton{
+    position: relative;
+    width:10vw;
+
+    margin-left: 1vw;
+    margin-right: 1vw;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+
+    height: 5vh;
+    line-height: 5vh;
+    text-align: center;
+    
+    background-color: rgb(0, 174, 255);
+}
+
+#join{
+
+}
+
+#create{
+
+}
+
+.screenDim{
+    position: absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    top:0;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+#menuBoxLobby{
+    position: relative;
+    height: 70vh;
+    width: 90vw;
+}
+
+#menuBox{
+    position: relative;
+    height: 70vh;
+}
+
+.menuBlock{
+    position: relative;
+    width: 28vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    height: 68vh;
+    
+
+    background-color: rgb(240, 240, 240);
+
+    float: left;
+}
+
+.lobbyListElement{
+    position: relative;
+    left:0;
+    right:0;
+    border: 1px solid gray;
+}
+
+.LobbyName{
+    font-size: 25;
+    margin: 3;
+}
+
+.Host{
+    font-size: 17;
+    margin: 3;
+}
+
+.JoinButton{
+    right: 0%;
+    top: 50%;
+
+    margin-right: 15;
+    
+    -ms-transform: translate(-0,-50%);
+    transform: translate(-0,-50%);
+}
+
+#Lobbies{
+    overflow:auto;
+    font-size: 17;
+}
+
+#rules{
+    width: 38vw;
+}
+
+#players{
+    overflow:auto;
+    width: 23vw;
+}
+
+#customize{
+    width: 23vw;
+
+}
+
+.playerListElement{
+    position: relative;
+    left:0;
+    right:0;
+    border: 1px solid gray;
+}
+
+.Avatar{
+    position: relative;
+    left:0%;
+    margin: 5px;
+    alt:"Avatar";
+    height: 70px;
+}
+
+.MenuPlayerName{
+    position: absolute;
+    top: 50%;
+    -ms-transform: translate(-0,-50%);
+    transform: translate(-0,-50%);
+    left:80px;
+    font-size: 25;
+    vertical-align: middle;
+}
+
+.Button{
+    position: absolute;
+
+    padding-top: 4;
+    padding-bottom: 4;
+    padding-left: 8;
+    padding-right: 8;
+
+    background-color: dodgerblue;
+
+    color: aliceblue;
+    
+}
+
+#LeaveLobbyButton{
+    right: 0%;
+    bottom: 0%;
+
+    margin-right: 15;
+    margin-bottom: 3;
+    
+    -ms-transform: translate(-0,-50%);
+    transform: translate(-0,-50%);
+}
