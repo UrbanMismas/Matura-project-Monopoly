@@ -38,4 +38,14 @@ VALUES (0)';
 $database->exec($sql);
 */
 
+/*
+$sql ='CREATE TABLE "Game" (
+	"idGame"	INTEGER,
+	"idLobby"	INTEGER,
+	PRIMARY KEY("idGame"),
+	FOREIGN KEY("idLobby") REFERENCES "Lobby"("idLobby")';
+$database->exec($sql);
+)
+*/
+
 ?>

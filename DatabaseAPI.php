@@ -28,6 +28,14 @@ function createPlayer ($lobbyID){
     $statement->execute();
 }
 
+function RemovePlayer ($PlayerID, $LobbyID){
+    $database = new SQLite3("Monopoly.db");
+    $statement = $database->prepare('DELETE FROM PlayerList WHERE idPlayer = :playerID AND idLobby = :lobbyID');
+    $statement->bindValue(':playerID', $PlayerID);
+    $statement->bindValue(':lobbyID', $LobbyID);
+    $statement->execute();
+}
+
 function getPlayerList ($lobbyID){
     $database = new SQLite3("Monopoly.db");
     $sql = 'SELECT *
@@ -70,7 +78,7 @@ function numOfPlayers ($lobbyID){
 function listOfLobbies(){
     $database = new SQLite3("Monopoly.db");
             
-    $statement = $database->prepare('SELECT Lobby.idLobby, Lobby.LobbyName, Lobby.EntryPassword, PlayerList.playerName, Rules.RuleType, Rules.MaxPlayers
+    $statement = $database->prepare('SELECT Lobby.idLobby, Lobby.LobbyName, Lobby.EntryPassword, Lobby.GameActive, PlayerList.playerName, Rules.RuleType, Rules.MaxPlayers
     FROM Lobby INNER JOIN PlayerList ON (Lobby.idLobby=PlayerList.idLobby) 
     INNER JOIN Rules ON (Lobby.idRules=Rules.idRules)
     WHERE PlayerList.Host = 1 ; ');
@@ -86,5 +94,74 @@ function listOfLobbies(){
     return $lobbies;
 }
 
+function createGame($lobbyID){
+    $database = new SQLite3("Monopoly.db");
+    $statement = $database->prepare('INSERT INTO Game (idGame, idLobby)
+    VALUES (:lobbyID, :lobbyID);');
+    $statement->bindValue(':lobbyID', $lobbyID);
+    $statement->execute();
+}
+
+function findGame($lobbyID){
+    $database = new SQLite3("Monopoly.db");
+    $statement = $database->prepare('SELECT idGame 
+        FROM Game
+        WHERE idLobby = :primaryKeyValue;');
+    $statement->bindValue(':primaryKeyValue', $lobbyID);
+    
+    $n=$statement->execute();
+
+    $lobbies=array();
+    return=$n->fetchArray();
+}
+
+function createBoard($lobbyID){
+    $database = new SQLite3("Monopoly.db");
+    $statement = $database->prepare('INSERT INTO Board (idGame)
+    VALUES (:lobbyID);');
+    $statement->bindValue(':lobbyID', $lobbyID);
+    $statement->execute();
+}
+
+function update($table, $primaryKeyName, $primaryKeyValue, $column, $value){
+    $database = new SQLite3("Monopoly.db");
+    $statement = $database->prepare('UPDATE :tableName
+        SET :column = :newValue
+        WHERE :primaryKeyName = :primaryKeyValue;');
+    $statement->bindValue(':tableName', $table);
+    $statement->bindValue(':primaryKeyName', $primaryKeyName);
+    $statement->bindValue(':primaryKeyValue', $primaryKeyValue);
+    $statement->bindValue(':column', $column);
+    $statement->bindValue(':newValue', $value);
+    $statement->execute();
+
+}
+
+function GetValue($table, $primaryKeyName, $primaryKeyValue, $column){
+    $database = new SQLite3("Monopoly.db");
+    $statement = $database->prepare('SELECT :column 
+        FROM :tableName
+        WHERE :primaryKeyName = :primaryKeyValue;');
+    $statement->bindValue(':tableName', $table);
+    $statement->bindValue(':primaryKeyName', $primaryKeyName);
+    $statement->bindValue(':primaryKeyValue', $primaryKeyValue);
+    $statement->bindValue(':column', $column);
+    
+    $n=$statement->execute();
+
+    $lobbies=array();
+    return=$n->fetchArray();
+}
+
+function RemoveRow($table, $primaryKeyName, $primaryKeyValue){
+    $database = new SQLite3("Monopoly.db");
+    $statement = $database->prepare('DELETE FROM :tableName 
+        WHERE idPlayer = :playerID AND idLobby = :lobbyID;');
+    $statement->bindValue(':tableName', $table);
+    $statement->bindValue(':primaryKeyName', $primaryKeyName);
+    $statement->bindValue(':primaryKeyValue', $primaryKeyValue);
+    $statement->execute();
+
+}
 
 ?>

@@ -100,6 +100,7 @@
 #Lobbies{
     overflow:auto;
     font-size: 17;
+    height: 62vh;
 }
 
 #rules{
@@ -159,6 +160,30 @@
     right: 0%;
     bottom: 0%;
 
+    margin-right: 15;
+    margin-bottom: 3;
+    
+    -ms-transform: translate(-0,-50%);
+    transform: translate(-0,-50%);
+}
+
+#LeaveLobbyListButton{
+
+    right: 0%;
+    bottom: 0%;
+    
+    margin-right: 15;
+    margin-bottom: 3;
+    
+    -ms-transform: translate(-0,-50%);
+    transform: translate(-0,-50%);
+}
+
+#StartGame{
+
+    right: 0%;
+    bottom: 0%;
+    
     margin-right: 15;
     margin-bottom: 3;
     

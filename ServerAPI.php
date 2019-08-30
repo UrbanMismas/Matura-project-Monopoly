@@ -33,6 +33,19 @@ if(isset($_POST["INeed"])){
             }
             echo json_encode($LobbyList);
         break;
+
+        case "LeaveLobby":
+            if(isset($_POST["PlayerID"])&&isset($_POST["LobbyID"])){
+                RemovePlayer($_POST["PlayerID"],$_POST["LobbyID"]);
+                
+            }
+        break;
+
+        case "StartGame":
+        if(isset($_POST["LobbyID"])){
+            createGame($_POST["LobbyID"]);
+            update("Lobby","idLobby",$_POST["LobbyID"],"GameActive","1");
+        break;
     }
 }
 ?>

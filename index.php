@@ -41,17 +41,11 @@
         </div>
         <?php
         if(!isset($_COOKIE['inGame'])){
-            echo'
-            <div id="everything" class="screenDim">
-                <div id="menu">
-                    <div id="join" class="menuButton" onclick="Join()">
-                        Join game
-                    </div>
-                    <div id="create" class="menuButton" onclick="Create()">
-                        Create game
-                    </div>
-                </div>
-            </div>';
+            echo '<div id="everything" class="screenDim">
+            <div id="menu">';
+            include 'Home.php';
+            echo '</div>
+                </div>';
         }
         ?>
     </body>
